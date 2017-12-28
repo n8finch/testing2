@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+// Default Variables
+
+$slick-font-family: "FontAwesome" !default;
+$slick-arrow-color: $charcoal !default;
+$slick-dot-color: $storm !default;
+$slick-dot-color-active: $greytornado !default;
+$slick-prev-character: "\f053" !default;
+$slick-next-character: "\f054" !default;
+$slick-dot-character: "\f111" !default;
+$slick-dot-size: 12px;
+$slick-opacity-default: 1 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 1 !default;
+
+/* Slider */
+
+.slick-list {
+    .slick-loading & {
+        background: #fff url("../img/icons/loading-orangepeach.gif") center center no-repeat;
+    }
+}

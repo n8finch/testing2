@@ -1,0 +1,2184 @@
+@charset 'utf-8';
+
+@import 'config/settings';
+@import 'foundation';
+@import 'motion-ui';
+
+$flex: false;
+$prototype: false;
+
+@if $flex {
+  $global-flexbox: true !global;
+}
+
+@include foundation-global-styles;
+@if not $flex {
+  @include foundation-grid;
+}
+@else {
+  @if $xy-grid {
+    @include foundation-xy-grid-classes;
+  }
+  @else {
+    @include foundation-flex-grid;
+  }
+}
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+
+@if $flex {
+  @include foundation-flex-classes;
+}
+
+@if $prototype {
+  @include foundation-prototype-classes;
+}
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+@import 'config/_slick';
+@import 'config/_wp-overrides';
+
+@import 'slick';
+@import 'imagehover';
+@import 'loading-image';
+
+
+
+/**
+* BEGIN LEGACY STYLES
+**/
+.medium-uncentered, .medium-push-0, .medium-pull-0{
+  clear: none;
+}
+/**
+* END LEGACY STYLES
+**/
+
+*{
+  box-sizing: border-box;
+}
+
+hr{
+  margin: 0 0 .75rem;
+  width: 75px;
+  border: 0;
+  height: 5px;
+  color: $body-font-color;
+  background: $body-font-color;
+}
+
+html,body {
+  height:100%;
+}
+
+[class^='imghvr-'],
+[class*=' imghvr-'] {
+  background-color: transparent;
+
+  &:hover{
+    > img{
+      opacity: 1;
+    }
+  }
+  figcaption{
+    background-color: rgba($black, .75);
+    margin: .5rem;
+
+    h4{
+      color: $white;
+      font-size: 1.1rem;
+      @include breakpoint(medium) {
+        font-size: 1.25rem;
+      }
+      @include breakpoint(large) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.column:last-child:not(:first-child), .columns:last-child:not(:first-child){
+  float: left;
+}
+.site-inner{
+  position: relative;
+}
+
+.above-the-fold-faker{
+  height: 100px;
+  @include breakpoint(large) {
+    height: 70px;
+  }
+}
+.imghvr-zoom-out:hover > img{
+  transform: scale(1.1);
+}
+
+.tabs-panel {
+  display: none;
+  padding: 0;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.lazy{
+  .loading-image{
+    min-width: 120px;
+    min-height: 120px;
+  }
+}
+
+.zoom{
+  display: inline-block; /* change the default display type to inline-block */
+  overflow: hidden;
+  &:hover img{
+    transform: scale(1.1);
+    transition: .6s ease-in-out;
+  }
+}
+
+.row.full-width{
+  max-width: 100%;
+}
+.button{
+  border: 2px solid $orangepeach;
+  font-weight: $global-weight-bold;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing: .04rem;
+  padding: .7rem 1rem;
+
+  &.on-light-bg{
+    border-color: $sunset;
+    color: $sunset;
+
+    &:hover{
+      background-color: $sunset;
+      color: $white;
+    }
+  }
+  &.on-dark-bg{
+    border-color: $orangepeach;
+    color: $orangepeach;
+
+    &:hover{
+      background-color: $orangepeach;
+      color: $white;
+    }
+  }
+}
+
+.slide{
+  vertical-align: middle;
+  display: inline-block !important;
+}
+
+ul.inline-list{
+  list-style: none;
+  li{
+    display: inline-block;
+  }
+}
+
+.site-header{
+  position: relative;
+}
+
+.off-canvas-content{
+  background: $body-background;
+}
+
+.menu{
+  > li > a {
+    color: $white;
+  }
+
+  &.vertical{
+    > li {
+      border-bottom: 1px solid #222;
+    }
+
+    .active > a {
+      font-weight: $global-weight-bold;
+    }
+  }
+}
+
+.top-bar{
+  height: 70px;
+}
+
+.slick-arrow{
+  display: block;
+  height: $arrow-size;
+  background: transparent;
+  width: $arrow-size;
+  border: 0;
+  border-radius: $arrow-size/2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  i{
+    position: relative;
+    top: 50%;
+    color: $charcoal;
+    font-size: $arrow-size/2;
+    transform: translateY(-50%);
+  }
+}
+
+#fourohfour{
+  padding: 40px 0;
+  background: $raincloud;
+
+  img{
+    margin-bottom: 30px;
+  }
+
+  h1{
+    margin-bottom: 30px;
+  }
+}
+
+#menu-title{
+  font-weight: $global-weight-bold;
+  padding: $menu-items-padding;
+  display: inline-block;
+  line-height: 1;
+  color: $dark-gray;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-logo-link{
+  position: absolute;
+  top: 50%;
+  left: 75px;
+  transform: translateY(-50%);
+  display: inline-block;
+  left: 60px;
+
+  img{
+    width: 125px;
+  }
+}
+
+#menu-icon{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  background: $white;
+  width: $menu-icon-size;
+  height: $menu-icon-size;
+  border: 0;
+  border-radius: 5px;
+  i{
+    line-height: $menu-icon-size;
+    text-align: center;
+    color: $topbar-background;
+    font-size: 1.5rem;
+  }
+  img{
+    margin: 3px 7px;
+  }
+}
+
+#projects{
+  background: $charcoal;
+  color: $white;
+  text-align: center;
+  padding-bottom: 3.5rem;
+
+  @include breakpoint(portrait) {
+    @include breakpoint(medium only) {
+      .medium-3{
+        width: 33.2%;
+      }
+    }
+  }
+
+  .filter-projects{
+    list-style: none;
+    display: inline-block;
+    margin-top:1rem;
+    padding-bottom:.5rem;
+
+    li{
+      margin-bottom: .5rem;
+      @include breakpoint(medium) {
+        display: inline-block;
+        height: auto;
+        margin-right: 1.5rem;
+      }
+    }
+    a{
+      border: 1px solid $sunset;
+      display: block;
+      color: $sunset;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      letter-spacing: .04rem;
+      font:{
+        size: 1.05rem;
+        weight: $global-weight-bold;
+      }
+      &.active, &:hover{
+        background: $sunset;
+        color: $white;
+
+      }
+    }
+  }
+
+  .grid{
+    margin: 0;
+  }
+  .grid-item{
+    padding: .25rem;
+    line-height: 0;
+
+    strong{
+      opacity: .6;
+    }
+  }
+}
+
+#logo-container{
+  position: relative;
+  left: 5%;
+  img{
+    height: 42px;
+  }
+}
+
+#header-right{
+  position: absolute;
+  right: 10px;
+  top: 17px;
+
+  ul{
+    margin-bottom: 0;
+    height: $header-icon-size;
+
+    li{
+      margin-right: 5px;
+    }
+  }
+}
+
+.site-footer #contact-text{
+  top: -11px;
+}
+
+.phone-icon i{
+  top: 53%;
+  font-size: 1.35rem;
+}
+
+#client-list{
+  $padding-vertical: 2.2rem;
+  padding: $padding-vertical 0 3.5rem 0;;
+  background: $charcoal;
+  color: $white;
+
+  h3{
+    font-weight: $global-weight-bold;
+    margin-bottom: $padding-vertical;
+    @include breakpoint(medium) {
+    }
+  }
+
+  .items{
+    .columns{
+      .item{
+        border-top: 1px solid $turquoise;
+
+        &:first-child{
+          border-top: 0;
+        }
+      }
+    }
+  }
+  .item {
+    text-transform: uppercase;
+    padding: .5rem 1rem;
+  }
+
+  a{
+    color: $white;
+    font-weight: 500;
+    letter-spacing: .04rem;
+    font-size: 1.1rem;
+    &:hover{
+      color: $sunset;
+    }
+  }
+}
+
+#page-statement{
+  background: $white;
+  margin-bottom: 1.5rem;
+  p{
+    font-size:1.1rem;
+    @include breakpoint(medium) {
+      font-size:1.15rem;
+    }
+  }
+
+  .button{
+    padding: 0.5rem 1rem .55rem 1rem;
+  }
+  .entry-title{
+    font-size: rem-calc(18px);
+    font-weight: 900;
+    color: $charcoal;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+
+    img{
+      height: 22px;
+      position: relative;
+      top: -3px;
+      display: inline-block;
+    }
+  }
+  .headline{
+    line-height: 0;
+    span{
+      background: $sky;
+      text-transform: uppercase;
+      color: $white;
+      line-height: 1;
+      display: inline-block;
+
+      &.first{
+        font-weight: 700;
+        padding: 3px 6px;
+        margin-bottom: 1px;
+        font-size:2.1rem;
+        @include breakpoint(medium) {
+          font-size: 2.25rem;
+        }
+      }
+      &.second{
+        font-weight: 900;
+        padding: 0 5px;
+        font-size: 3.65rem;
+        @include breakpoint(medium) {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+  .subheader{
+    @include breakpoint(small only) {
+      font-size:1.35rem;
+      margin-bottom:1.25rem;
+    }
+    font-size: rem-calc(24px);
+  }
+}
+
+#mobile-statement-image{
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+#statement-image{
+  background-color: transparent;
+  background-position: center;
+  background-attachment: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &.left{
+    right: auto;
+    left: 0;
+  }
+
+  img{
+    width: 50vw;
+    height: $above-the-fold-height;
+    min-height: $above-the-fold-min-height;
+  }
+}
+
+#above-the-fold{
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+
+  &.no-image{
+    #page-statement{
+      .subheader{
+        margin: 0 0 1.5rem 0;
+      }
+    }
+  }
+  &.with-image{
+    padding: 0;
+    @include breakpoint(large) {
+      height: $above-the-fold-height;
+      min-height: $above-the-fold-min-height;
+    }
+    #page-statement{
+      padding-bottom: $paragraph-margin-bottom;
+      padding: 0 7%;
+
+      @include breakpoint(medium only) {
+        padding-left: 5%;
+        padding-right:8%;
+      }
+
+      @include breakpoint(large) {
+        padding-bottom: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 2%;
+        padding-right: 8%;
+        padding-left: 3%;
+      }
+
+      .subheader{
+        margin: 1.6rem 0 1.5rem 0;
+      }
+    }
+  }
+}
+
+#footer{
+  background: $charcoal;
+  @include breakpoint(small only) {
+    padding: 0 2rem;
+  }
+}
+
+#being-social{
+  color: $white;
+  .row{
+    position: relative;
+  }
+  .twitter-feed{
+    position: relative;
+    a{
+      color: $babyblue;
+    }
+  }
+  .discuss-project{
+    text-align: center;
+    padding: 3rem 0 2rem 0;
+
+    h3{
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      @include breakpoint(medium only) {
+        font-size: 1.1875rem;
+      }
+    }
+  }
+  .maillist{
+    margin-top: 3rem;
+    @include breakpoint(medium) {
+      border-left: 1px solid $shade;
+    }
+
+    h5{
+      margin-bottom: 1.5rem;
+      line-height: 40px;
+      span{
+        margin-left: .5rem;
+        text-transform: uppercase;
+        font-size: rem-calc(18px);
+      }
+    }
+    input[type="email"]{
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      @include breakpoint(large) {
+        width: 60%;
+        float: left;
+      }
+    }
+    .button{
+      @include breakpoint(large) {
+        width: 35%;
+        float: right;
+      }
+      color: $white;
+      border-color: $white;
+      &:hover{
+        color: $blue;
+        background: $white;
+      }
+    }
+  }
+}
+
+#ctf{
+  @include breakpoint(small only) {
+    padding-top: 4rem;
+  }
+  width: auto !important;
+  overflow-y: visible;
+}
+
+.ctf-tweets{
+  .ctf-item{
+    width: 100%;
+    @include breakpoint(medium) {
+      float: left;
+      padding: 3rem !important;
+
+      &:first-child{
+        padding-left: 4rem !important;
+        padding-right: 2rem !important;
+      }
+    }
+  }
+}
+
+.full-link{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  span{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+.blue-twitter-icon{
+  background: $white;
+  border: 0;
+  border-radius: 50%;
+  text-align: center;
+  height: 35px;
+  width: 35px;
+  padding: 0 !important;
+  margin-left: 1rem !important;
+  border: 0 !important;
+  i{
+    color: $charcoal;
+    line-height: 38px;
+    font-size: 25px;
+    padding-left: 4px;
+  }
+  &:hover{
+    background: $blue !important;
+  }
+}
+
+.icon{
+  border: 0;
+  border-radius: 50%;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  padding: 0 !important;
+  border: 0 !important;
+
+  &.white-icon{
+    background: $white;
+
+    i{
+      color: $blue;
+    }
+  }
+  &.blue-icon{
+    background: $blue;
+    i{
+      color: $white;
+    }
+  }
+  &.orange-icon{
+    background: $sunset;
+    i{
+      color: $charcoal;
+    }
+  }
+
+  &.twitter{
+    position: absolute;
+    top: 3rem;
+    left: 1.5rem;
+    @include breakpoint(small only) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    i{
+      line-height: 42px;
+      font-size: 30px;
+      padding-left: 3px;
+    }
+  }
+  &.envelope{
+    float: left;
+    i{
+      line-height: 39px;
+      font-size: 24px;
+    }
+  }
+}
+
+#project-hype{
+  padding: 1rem 0;
+  background: $charcoal;
+
+  .filter-projects{
+    text-align: center;
+    @include breakpoint(small only) {
+      li{
+        display: block;
+        padding-top: 1rem;
+      }
+    }
+  }
+  .filter{
+    color: $white;
+    &:hover{
+      color: $sunset;
+    }
+  }
+  .filter-container{
+    @include breakpoint(medium) {
+      padding-left: .8rem;
+      position: relative;
+      top: -6px;
+      &:after {
+        content: "/";
+        color: $white;
+        margin-left: 1rem;
+      }
+      &:last-child:after{
+        content: '';
+      }
+    }
+  }
+}
+
+#homepage-other-projects{
+  background: $charcoal;
+  padding-top: 2rem;
+  .type{
+    background: $sunset;
+    padding: .5rem 1rem;
+    color: $white;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: absolute;
+    top: -21px;
+    left: 0;
+  }
+  .image-container{
+    background-repeat: no-repeat;
+    background-size: cover;
+    img{
+      opacity: 0;
+    }
+  }
+  .content-container{
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    background: $white;
+
+    border-bottom: 3px solid $sunset;
+    h4{
+      text-transform: uppercase;
+    }
+    p{
+      margin-bottom: 0;
+      font-size: rem-calc(18px);
+    }
+    a, p{
+      color: $black;
+    }
+    &:hover{
+      background: $sunset;
+      a, p{
+        color: $white;
+      }
+    }
+  }
+}
+
+#homepage-starter{
+  background-size: contain;
+  background-repeat: no-repeat;
+  @include breakpoint(2000px) {
+    background-size: cover;
+  }
+  img{
+    opacity: 0;
+  }
+  .full-wrapper{
+    background: $white;
+    width: 100%;
+  }
+  .row{
+    position: relative;
+  }
+}
+
+#float-above{
+  position: relative;
+  padding: 2rem 0;
+  text-align: center;
+  @include breakpoint(medium) {
+    top: -100px;
+    background: $white;
+    display: inline-block;
+    padding: 2rem;
+    text-align: left;
+  }
+
+  h1{
+    line-height: 1.2;
+    color: $evilgray;
+    text-transform: uppercase;
+    font-weight: 400;
+
+    font-size: rem-calc(25px);
+    @include breakpoint(medium) {
+      font-size: rem-calc(28px);
+    }
+
+    strong{
+      font-size: rem-calc(40px);
+      @include breakpoint(medium) {
+        font-size: rem-calc(80px);
+      }
+      @include breakpoint(large) {
+        font-size: rem-calc(125px);
+      }
+      color: $sunset;
+    }
+  }
+
+  #your-words, #words{
+    line-height: 1;
+    display: inline-block;
+    color: $nextdimension;
+    font-size: rem-calc(20px);
+    @include breakpoint(medium) {
+      font-size: rem-calc(35px);
+    }
+    @include breakpoint(large) {
+      font-size: rem-calc(40px);
+    }
+  }
+
+  #words{
+    margin-left: 1rem;
+  }
+}
+
+#homepage-mission-content{
+  position: relative;
+  @include breakpoint(medium) {
+    top: -75px;
+  }
+
+  .statement{
+    p{
+      border-left: 2px solid $blue;
+      padding-left: 1rem;
+      font-size: 1.1rem;
+      @include breakpoint(large) {
+        font-size: rem-calc(22px);
+      }
+    }
+  }
+
+  .button{
+    @include breakpoint(medium) {
+      float: right;
+    }
+    @include breakpoint(large) {
+      font-size: rem-calc(21px);
+    }
+  }
+}
+
+
+
+
+#page-points{
+  width: 100%;
+  padding-top: 3rem;
+  padding-left: 2%;
+  padding-right: 2%;
+  background: $storm;
+  color: $charcoal;
+
+  .point{
+    margin-bottom: 3rem;
+  }
+
+  .point-title{
+    line-height: 1.25;
+    color: $charcoal;
+    font-weight: 900;
+    font-size: rem-calc(26px);
+  }
+
+  hr{
+    color: $tornado;
+    background: $tornado;
+  }
+
+  p{
+    margin-bottom: 0;
+  }
+}
+
+#team-listing{
+  @include breakpoint(small only) {
+    text-align: center;
+  }
+  .member{
+    padding: 3rem 1.2rem;
+    &:nth-child(odd){
+      background: $charcoal;
+      color: $white;
+      a{
+        color: #8e979a;
+
+        &.active, &:hover{
+          color: $white;
+          border-bottom: 1px solid $white;
+        }
+      }
+    }
+    &:nth-child(even){
+      background: $white;
+      color: $charcoal;
+
+      a{
+        color: #a0a7aa;
+
+        &.active, &:hover{
+          color: $charcoal;
+          border-bottom: 1px solid $charcoal;
+        }
+      }
+    }
+
+    .medium-9{
+      position: relative;
+      top: -.5rem;
+    }
+  }
+
+  .inline-list{
+    margin: 1rem 0 1.5rem;
+
+    a{
+      text-transform: uppercase;
+      padding-bottom: .25rem;
+      display: inline-block;
+      font-weight: $global-weight-bold;
+      &:hover{
+        color: $sunset;
+        border-bottom: 1px solid $white;
+        border-bottom: 1px solid $sunset;
+      }
+    }
+  }
+
+  li{
+    margin-right: 1.5rem;
+  }
+
+  img{
+    width: 316px;
+    @include breakpoint(small only) {
+      width: 200px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  h4{
+    font-size: rem-calc(30px);
+  }
+
+  h5{
+    padding: 0px 5px;
+    display: inline-block;
+    background: $sunset;
+    color: $white;
+  }
+}
+
+#disclaimer{
+  background: $charcoal;
+  color: $white;
+  padding: $section-padding;
+  font:{
+    weight: $global-weight-bold;
+    size: rem-calc(23px);
+  }
+  text-align: center;
+
+  .button{
+    margin-left: 1rem;
+    margin-bottom: 0;
+    font-size: rem-calc(20px);
+    color: $orangepeach;
+    &:hover{
+      background-color: $orangepeach;
+      color: $white;
+    }
+    @include breakpoint(small only) {
+      margin-left: 0;
+      margin-top: 2rem;
+    }
+  }
+}
+
+#arrows{
+  > div{
+    position: relative;
+    z-index: 999;
+    background: #ccc;
+    padding: 20px;
+    border: 1px solid #777;
+    display: inline-block;
+  }
+}
+
+#testimonials{
+  position: relative;
+  background: $white;
+  display: block;
+  text-align: center;
+  padding: 2.75rem 0;
+
+  a{
+    display: inline-block;
+  }
+
+  blockquote{
+    width: 50%;
+    margin: 0 auto;
+    font:{
+      weight: $global-weight-bold;
+    }
+  }
+
+  cite{
+    text-transform: uppercase;
+    font:{
+      style: normal;
+    }
+    &:before{
+      content: '';
+    }
+
+    .name{
+      font-weight: $global-weight-bold;
+    }
+  }
+
+  .fa-circle{
+    font-size: 4px;
+    position: relative;
+    top: -3px;
+    margin: 0 1rem;
+  }
+
+  .client-logo{
+    margin-bottom: 2rem;
+  }
+}
+
+#next{
+  right: -$arrow-size/2;
+  i{
+    right: $arrow-size/5;
+  }
+}
+
+#prev{
+  left: - $arrow-size/2;
+  i{
+    left: $arrow-size/5;
+  }
+}
+
+#project-details{
+  padding: $section-padding;
+
+  h5{
+    margin-bottom: .75rem;
+    letter-spacing: .04rem;
+    color: $anothergray;
+    font:{
+      weight:500;
+      size: .9rem;
+    }
+    text-transform: uppercase;
+  }
+  .detail{
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
+  }
+  .button{
+    color: $sunset;
+    padding: .5rem .7rem .6rem .7rem;
+    border-color: $sunset;
+    background: $sunset;
+    color: $white;
+
+    &:hover{
+      border-color: $blue;
+      background: $blue;
+      color: $white;
+    }
+  }
+}
+
+#highlights{
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h4{
+    font-size: rem-calc(26px);
+    color: $sunset;
+    margin-bottom: 0;
+  }
+  img{
+    margin: 1rem 0;
+  }
+  strong{
+    font:{
+      weight: 900;
+      size: rem-calc(26px);
+    }
+    color: $black;
+
+  }
+  p{
+    font:{
+      size: rem-calc(20px);
+      weight: 700;
+    }
+    line-height: 1.2;
+    color: $charcoal;
+    margin-bottom: 0;
+  }
+  .arrow{
+    height: 30px;
+  }
+  .break{
+    font:{
+      size: 2rem;
+      weight: $global-weight-bold;
+    }
+    color: $medium-gray;
+  }
+}
+
+#other-projects{
+  padding: 2.5rem 0;
+  background: $cloudyday;
+  h3{
+    display: block;
+    margin-bottom: 0;
+    color: $charcoal;
+    margin-bottom: .75rem;
+  }
+  h5{
+    color: $charcoal;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  figure{
+    a{
+      background: transparent;
+      &:hover{
+        background: transparent;
+      }
+    }
+  }
+  a{
+    color: $charcoal;
+    margin-bottom: .75rem;
+    display: inline-block;
+    text-transform: uppercase;
+    font:{
+      size: .9rem;
+      weight: $global-weight-bold;
+    }
+
+    &:hover{
+      color: $sunset;
+      background: $white;
+    }
+    &.button{
+      text-transform:uppercase;
+      font:{
+        size: 1rem;
+        weight: $global-weight-bold;
+      }
+      border-color: $charcoal;
+      margin: 0;
+
+      &:hover{
+        border-color: $white;
+      }
+    }
+  }
+  img{
+    @include breakpoint(small only) {
+      width: 200px;
+      margin-bottom: 1rem;
+    }
+  }
+  .image-collection{
+    margin-bottom: 2rem;
+    .columns{
+      margin-bottom: 1.5rem;
+    }
+  }
+  .arrow{
+    display: block;
+    height: 30px;
+    margin: 1rem auto;
+  }
+  .columns{
+    &:last-child{
+      float: left;
+    }
+  }
+}
+
+#client-name{
+  background: $charcoal;
+  padding: $section-padding;
+  h5{
+    font-weight: 400;
+    color: $nimbuscloud;
+    text-transform: uppercase;
+  }
+
+  h1{
+    color: $white;
+    font-weight: 400;
+  }
+}
+
+div.wpcf7-mail-sent-ok {
+  border: 2px solid $clover;
+  color: $clover;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+#contact-form{
+  background: $charcoal;
+  padding: $section-padding;
+
+
+  .wpcf7-not-valid-tip{
+    color: $sunset;
+  }
+  .wpcf7-validation-errors{
+    border: 2px solid $white;
+    color: $white;
+  }
+
+  .wpcf7-form-control-wrap{
+    input{
+      height: 3.5rem;
+      line-height: 3.5rem;
+    }
+    textarea{
+      padding-top: .8rem;
+    }
+    input, textarea{
+      padding-left: 1.5rem;
+    }
+  }
+
+  ul{
+    margin-bottom: 3rem;
+    i{
+      background: $sunset;
+      width: rem-calc($header-icon-size);
+      height: rem-calc($header-icon-size);
+      border: 0;
+      border-radius: rem-calc($header-icon-size/2);
+      color: $topbar-background;
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: rem-calc($header-icon-size);
+      margin: 0 .5rem 1rem 0;
+    }
+    span{
+      color: $white;
+      font:{
+        weight: $global-weight-bold;
+      }
+    }
+    a{
+      display: inline-block;
+
+      &:hover{
+        span{
+          color: $sunset;
+        }
+        i{
+          color: $white;
+        }
+      }
+
+    }
+  }
+
+  .fa-map-marker{
+    float: left;
+  }
+
+  .wpcf7-submit{
+    float: right;
+    font-size: $input-font-size;
+    &:hover{
+      background-color: $orangepeach;
+      color: $white;
+    }
+  }
+}
+
+#services-list{
+  padding: 0 2%;
+  img{
+    @include breakpoint(small only) {
+      width: 200px;
+      margin-bottom: 1rem;
+    }
+  }
+  hr{
+    color: $medium-gray;
+    background: $medium-gray;
+    @include breakpoint(small only) {
+      margin: 0 auto .75rem;
+    }
+  }
+  ul{
+    margin: 3rem 0 0 0;
+    text-align: center;
+  }
+  li{
+    margin-right: 1rem;
+    @include breakpoint(small only) {
+      display: block;
+      margin-right: 0;
+    }
+
+    &:last-child{
+      margin-right: 0;
+    }
+    &.is-active{
+      .button{
+        border-color: $charcoal;
+        background: $charcoal;
+        color: $white;
+      }
+    }
+    .button{
+      font-size: 1.15rem;
+      text-transform:uppercase;
+      &:hover, &:focus{
+        border-color: $charcoal;
+        background: $charcoal;
+        color: $white;
+      }
+    }
+  }
+  #page-points{
+    background: $white;
+  }
+  .tabs-content{
+    .row{
+      margin-bottom: 2rem;
+    }
+  }
+
+}
+
+@keyframes bounceDown {
+	0%, 20%, 60%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(5px);
+	}
+	80% {
+		transform: translateY(2px);
+	}
+}
+
+@keyframes bounceUp {
+	0%, 20%, 60%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-5px);
+	}
+	80% {
+		transform: translateY(-2px);
+	}
+}
+
+.up-or-down{
+  opacity: .5;
+  position: fixed;
+  top: 35%;
+  right: 2.5rem;
+  z-index: 9999;
+
+  @include breakpoint(medium) {
+    right: 2rem;
+  }
+
+  i{
+    padding: .5rem;
+    @include breakpoint(medium) {
+      padding: 1rem;
+    }
+  }
+}
+#scroll-down{
+  background: $sunset;
+  display: block;
+
+  i{
+    color: $charcoal;
+    &:hover {
+    	animation: bounceDown 1s;
+    }
+  }
+}
+
+#scroll-up{
+  background: $blue;
+  display: none;
+
+  i{
+    color: $white;
+
+    &:hover {
+    	animation: bounceUp 1s;
+    }
+  }
+}
+
+#gallery{
+  background: $charcoal;
+  color: $white;
+  text-align: center;
+  overflow: hidden;
+
+  img{
+    max-height: 80vh;
+  }
+  h2{
+    margin-bottom: 2rem;
+    width: 80%;
+    display: inline-block;
+    font-weight:500;
+  }
+  .slick-arrow{
+    top: 45%;
+    i{
+      color: $greytornado;
+    }
+  }
+
+  .slide{
+    max-width: 90% !important;
+    @include breakpoint(medium) {
+      max-width: 80% !important;
+    }
+    @include breakpoint(large) {
+      max-width: 70% !important;
+    }
+  }
+  .crumbs{
+    margin: 1rem 0 2rem;
+    @include breakpoint(medium) {
+      margin: 2rem 0;
+    }
+    img{
+      margin: 0 6px;
+      width: 26px;
+      display: inline-block;
+      position: relative;
+      top: -2px;
+    }
+    a{
+      font-size: .9rem;
+      letter-spacing: .02rem;
+      padding: 4px 5px;
+      line-height: 1;
+      text-transform: uppercase;
+      font:{
+        weight: $global-weight-bold;
+      }
+      display: inline-block;
+      background: $greytornado;
+      color: $charcoal;
+
+      &:hover{
+        color: $white;
+        background: $charcoal;
+      }
+    }
+  }
+}
+
+#page-tagline{
+  padding: $section-padding;
+  text-align: center;
+  h3{
+    color: $white;
+    margin: 0;
+    font-weight:500;
+    font-size:1.75rem;
+  }
+}
+
+.team-page{
+  #disclaimer{
+    background: $sunset;
+
+    .button{
+      border-color: $white;
+      color: $white;
+
+      &:hover{
+        background-color: $white;
+        color: $sunset;
+      }
+    }
+  }
+}
+
+.project-listing{
+  #above-the-fold{
+    padding: 3rem 10% 2rem 5%;
+    background: $charcoal;
+    .entry-title { color: $nimbuscloud; }
+    p { color: $white; }
+  }
+}
+
+.services-page{
+  #page-tagline{
+    background: $sunset;
+  }
+}
+
+.contact-page{
+  #page-statement{
+    margin: 3rem 0;
+    background: transparent;
+    .entry-title { color: $nimbuscloud; }
+  }
+  #statement-image{
+    height: 100%;
+  }
+  .form{
+    padding: 0 6%;
+    @include breakpoint(large) {
+      padding: 0 3%;
+    }
+  }
+  .image{
+    display: none;
+  }
+}
+
+@media screen and (min-width: map-get($breakpoints, 'contactbreakpoint')) {
+  .contact-page{
+    .form{
+      width: 50%;
+    }
+    .image{
+      display: block;
+    }
+  }
+}
+
+.contact-us-button{
+  display: block;
+  width: 100px;
+  height: 29px;
+  background: transparent url('../img/icons/get-in-touch-mobile-off.png') 0 0 no-repeat;
+  background-size: 100px;
+  &:hover{
+    background-image: url('../img/icons/get-in-touch-mobile-hover.png');
+  }
+  @include breakpoint(medium) {
+    width: 155px;
+    height: 31px;
+    background-size: 155px;
+    background-image: url('../img/icons/get-in-touch-full-off.png');
+    &:hover{
+      background-image: url('../img/icons/get-in-touch-full-hover.png');
+    }
+  }
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.homepage, .client-page, .about-page, .services-page, .team-page, .contact-page{
+  .top-bar{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+  .top-bar, .top-bar ul{
+    background-color: transparent;
+  }
+}
+
+
+
+.client-page, .about-page{
+  #page-tagline{
+    background: $sunset;
+  }
+}
+
+.contact-page{
+  #header-right{
+    display: none;
+  }
+  #above-the-fold.with-image{
+    $minHeight: 425px;
+    @include breakpoint(medium) {
+      height: 50vh;
+      min-height: $minHeight;
+
+      #page-statement{
+        min-height: $minHeight;
+      }
+
+      #statement-image img{
+        height: 60vh;
+        min-height: $minHeight;
+      }
+    }
+  }
+}
+
+#services-disclaimer{
+  img{
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+  ul{
+    margin-bottom: 3rem;
+    margin-left: 0;
+  }
+  li{
+    list-style-type: none;
+    color: $black;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid $duhgray;
+    &:last-child{
+      border-bottom: 0;
+    }
+  }
+  hr{
+    background: $tornado;
+    border-color: $tornado;
+    color: $tornado;
+  }
+  p{
+    margin: 3rem 0;
+    text-transform: uppercase;
+    color: $charcoal;
+    font-size:1.2rem;
+    letter-spacing: .06rem;
+  }
+  .title{
+    color: $charcoal;
+    font-size: rem-calc(26px);
+    @include breakpoint(large) {
+      font:{
+        size: rem-calc(30px);
+      }
+    }
+  }
+  .button{
+    font-size: rem-calc(21px);
+    margin-bottom: 3rem;
+
+    &:hover{
+      color: $white;
+      background: $sunset;
+    }
+  }
+}
+
+#featured-project{
+  padding: 2rem 0;
+  text-align: center;
+  @include breakpoint(medium) {
+    text-align: left;
+    padding: 4rem 0;
+  }
+  background: $charcoal;
+  color: $white;
+
+  figure{
+    @include breakpoint(small only) {
+      margin-bottom: 2rem;
+    }
+
+  }
+
+  h3{
+    line-height: 1;
+    color: $white;
+    margin-bottom: 0;
+    span{
+      text-transform: uppercase;
+      background: $sky;
+      display: inline-block;
+    }
+
+    .first{
+      font:{
+        size: 2rem;
+        weight: 900;
+      }
+      @include breakpoint(large) {
+        font-size: rem-calc(40px);
+      }
+      letter-spacing: 1px;
+      margin: 0 0 2px 0;
+      padding: 4px 9px;
+    }
+
+    .second{
+      font:{
+        size: 2.75rem;
+        weight: 900;
+      }
+      @include breakpoint(large) {
+        font-size: rem-calc(70px);
+      }
+      margin-bottom: 0rem;
+      padding: 0px 8px;
+    }
+  }
+
+  h4{
+    margin-bottom: 1.75rem;
+  }
+
+  .inline-list{
+    margin-bottom: 0;
+    h5{
+      font-size: rem-calc(12px);
+      text-transform: uppercase;
+    }
+    li{
+      margin-right: 3rem;
+
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    .button{
+      background: $shade;
+      color: $charcoal;
+      border: 0;
+
+      &:hover{
+        color: $white;
+      }
+    }
+  }
+
+  .projects-button{
+    margin: 2rem 0;
+    font-size: 1.15rem;
+    @include breakpoint(large) {
+      margin-top: 2rem;
+      margin-bottom: 0;
+      font-size: rem-calc(20px);
+    }
+  }
+}
+
+
+#mission-statement{
+  background: $babyblue;
+  padding: 3rem 0;
+  text-align: center;
+  #usaid-logo{
+    opacity: .8;
+  }
+  strong{
+    font-size: 1.55rem;
+  }
+  p{
+    font-size: 1.45rem;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  ul{
+    list-style: none;
+    margin: 2rem 0;
+    li{
+      display: inline-block;
+      padding: 1rem 1%;
+      width: 45%;
+      opacity: .75;
+    }
+  }
+  .button{
+    border-color: $tangerine;
+    color: $tangerine;
+    &:hover{
+      background: $tangerine;
+      color: $babyblue;
+    }
+  }
+}
+
+.homepage{
+  .above-the-fold-faker{
+    @include breakpoint(small only) {
+      height: 115px;
+    }
+    @include breakpoint(large) {
+      height: 100px;
+    }
+  }
+  #statement-image{
+    z-index: 1;
+  }
+  #case-study{
+    margin-bottom: 1.5rem;
+    img{
+      height: 30px;
+      margin: 1rem 0;
+    }
+    h5{
+      font-weight: 400;
+      font-size: rem-calc(15px);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    hr{
+      width: 50px;
+      color: $babyblue;
+      background: $babyblue;
+      height: 1px;
+      margin: 0 auto;
+    }
+  }
+  #above-the-fold #page-statement{
+    background: transparent;
+    z-index: 2;
+    text-align: center;
+    @include breakpoint(medium) {
+      padding-bottom: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 2%;
+      left: auto;
+      padding-right: 3% !important;
+      padding-left: 8% !important;
+    }
+    h1{
+      font-size: 36px;
+      line-height: 1;
+      color: $white;
+      span{
+        display: block; // line-heights get silly unless most are blocks
+      }
+    }
+
+    p{
+      color: $white;
+      font-size: rem-calc(20px);
+    }
+
+    .button{
+      font-size:1.3rem;
+      border-color: $white;
+      color: $white;
+      background: $blue;
+      margin: 2.5rem 0 2.5rem;
+
+      &:hover{
+        color: $blue;
+        background: $white;
+      }
+    }
+
+
+  }
+  #above-the-fold{
+    @include breakpoint(medium) {
+      min-height: $above-the-fold-min-height;
+      height: $above-the-fold-height;
+    }
+    background: $blue;
+  }
+}
+
+#services-sections{
+  img{
+    max-height: rem-calc(300px);
+    margin-bottom: 2rem;
+  }
+
+  .section-title{
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 2px solid #ff6d50;
+    margin-bottom: 1.5rem;
+    color: $bluecharcoal;
+  }
+
+  .point-title{
+    text-transform: uppercase;
+    color: $bluecharcoal;
+  }
+
+  .service-section{
+    padding: 2rem 0;
+    @include breakpoint(medium) {
+      padding: 4rem 0;
+    }
+  }
+
+  .even{
+    background: #dff2f5;
+  }
+
+  .odd{
+    .point{
+      @include breakpoint(medium) {
+        // text-align: right;
+      }
+    }
+  }
+}
+
+.site-footer{
+  background: $charcoal;
+
+  img{
+    width: 200px;
+    margin-bottom: $paragraph-margin-bottom;
+  }
+
+  strong{
+    font-size: 1.2rem;
+  }
+
+  .tagline-credits{
+    padding: 2rem 0;
+    text-align: center;
+    @include breakpoint(medium) {
+      .medium-5{
+        text-align: right;
+        padding-right: 3rem;
+      }
+      .medium-7{
+        text-align: left;
+      }
+    }
+
+    .tagline{
+      color: $electricblue;
+    }
+  }
+
+  .copyright{
+    font-size: rem-calc(12px);
+    color: $seegray;
+  }
+}
+
+#top-of-page{
+  .contact-us-span{
+    padding: .5rem 1rem;
+    margin: 0 .25rem;
+    font-size: .95rem;
+    border: 2px solid $orangepeach;
+    color: $orangepeach;
+    text-transform: uppercase;
+    font:{
+      weight: $global-weight-bold;
+    }
+
+    &:hover{
+      color: $charcoal;
+      background: $orangepeach;
+      border-color: $orangepeach;
+    }
+  }
+  .active a.contact-us-span{
+    color: $charcoal;
+    background: $orangepeach;
+    border-color: $orangepeach;
+  }
+}
+
+#mobile-menu{
+  height: 60px;
+  background: $charcoal;
+}
+#large-menu{
+  height: 60px;
+  background: $charcoal;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  text-transform: uppercase;
+  font:{
+    weight: $global-weight-bold;
+  }
+  .top-bar-left{
+    width: 100%;
+  }
+  .row{
+    position: relative;
+  }
+  ul{
+    position: absolute;
+    right: 20px;
+    top: 12px;
+
+    .active{
+      a{
+        background: $hoverover;
+        border-color: $hoverover;
+      }
+    }
+    a{
+      padding: .5rem 1rem;
+      margin: 0 .25rem;
+      border: 2px solid $charcoal;
+      font-size: .95rem;
+
+      &:hover{
+        background: $hoverover;
+        border-color: $hoverover;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 600px){
+  #mission-statement ul li{
+    width: 31%;
+  }
+}
+
+// @media screen and (min-width: 1200px){
+//   #large-menu ul {
+//     position: absolute;
+//     right: 20;
+//     top: 12px;
+//   }
+// }
+
+@media screen and (min-width: $topbar-unstack-breakpoint) {
+  #top-of-page{
+    padding-top: 60px;
+  }
+  #large-menu{
+    display: block;
+  }
+  #mobile-menu{
+    display: none;
+  }
+  #mission-statement ul li{
+    width: 19%;
+
+    &#tah-logo{
+      width: 15%;
+    }
+
+    &#neamb-logo{
+      width: 16%;
+    }
+
+    &#aai-logo{
+      width: 21%;
+    }
+  }
+}

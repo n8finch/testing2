@@ -1,0 +1,72 @@
+{
+  "name": "foundy-genesix",
+  "title": "Foundy Genesix",
+  "version": "3.0.1",
+  "description": "Foundy Genesix is a WordPress starter theme based on Foundation 6 by Zurb. The parent theme is the Genesis Framework.",
+  "keywords": [
+    "Foundy Genesix",
+    "WordPress",
+    "starter theme",
+    "Foundation",
+    "semantic",
+    "mobile first",
+    "customizable",
+    "responsive"
+  ],
+  "homepage": "http://serendipitycreative.com",
+  "license": "Copyright 2017 Serendipity Creative LLC",
+  "main": "gulpfile.babel.js",
+  "repository": {
+    "type": "bitbucket",
+    "url": "https://bitbucket.org/serendipitycreative/foundy-genesix"
+  },
+  "dependencies": {
+    "foundation-sites": "^6.4.2",
+    "jquery": "~3.0.0",
+    "motion-ui": "~1.2.3",
+    "what-input": "^4.1.3",
+    "slick-carousel": "^1.7.1",
+    "jquery-match-height": "^0.7.2",
+    "imagehover.css": "git+https://github.com/ciar4n/imagehover.css.git"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.7.2",
+    "browser-sync": "^2.10.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^3.3.1",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-extname": "^0.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-uncss": "^1.0.1",
+    "js-yaml": "^3.4.6",
+    "panini": "^1.3.0",
+    "rimraf": "^2.4.3",
+    "script-loader": "^0.7.0",
+    "slick-carousel": "^1.7.1",
+    "style-sherpa": "^1.0.0",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^3.5.4",
+    "webpack-stream": "^4.0.0",
+    "yargs": "^3.8.0"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build --production"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
